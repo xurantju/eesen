@@ -31,6 +31,8 @@ namespace fst {
 /// \addtogroup context_fst_group
 /// @{
 
+// quick hard code to make it compile... Ran Xu
+#define HAVE_OPENFST_GE_10400 true
 
 template<class Arc, class LabelT>
 typename ContextFstImpl<Arc, LabelT>::StateId

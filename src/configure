@@ -56,14 +56,15 @@ if [ "`basename $PWD`" != "src" ]; then
 fi
 
 ## Default locations for FST and linear algebra libraries.
-MATHLIB='ATLAS'
-ATLASROOT=`rel2abs ../tools/ATLAS/`
-FSTROOT=`rel2abs ../tools/openfst`
+MATHLIB='OPENBLAS'
+ATLASROOT='tools/ATLAS/'
+FSTROOT='tools/openfst'
 
 # Avoid using any variables that are set in the shell.
 unset MKLROOT
 unset CLAPACKROOT
-unset OPENBLASROOT
+#unset OPENBLASROOT
+OPENBLASROOT='/opt/OpenBLAS'
 unset MKLLIBDIR
 
 function usage {
@@ -298,7 +299,7 @@ is_set $OPENBLASROOT && echo "Force-configuring KALDI to use OPENBLAS"&& export 
 function linux_configure_cuda {
   #check for CUDA toolkit in the system
   if [ ! $CUDATKDIR ]; then
-    for base in /Developer/NVIDIA/CUDA-6.0 /usr/local/share/cuda /usr/local/cuda /pkgs_local/cuda-3.2/ /opt/nvidia_cuda/cuda-6.0/ /usr/; do
+    for base in /Developer/NVIDIA/CUDA-6.0 /usr/local/share/cuda /usr/local/cuda-7.0 /usr/local/cuda /pkgs_local/cuda-3.2/ /opt/nvidia_cuda/cuda-6.0/ /usr/; do
       if [ -f $base/bin/nvcc ]; then
         CUDATKDIR=$base
       fi

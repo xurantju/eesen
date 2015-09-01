@@ -67,6 +67,8 @@ using std::tr1::unordered_map;
 
 #include "util/const-integer-set.h"
 
+#define HAVE_OPENFST_GE_10400 true
+
 namespace fst {
 
 /// \addtogroup context_fst_group "Classes and functions related to context expansion"
